@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "shimunnetwork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shimunKg/ShimunNetwork",
+      "state" : {
+        "branch" : "main",
+        "revision" : "419c57890e2238a3a9073d97cba5a694461bcf8d"
+      }
+    }
+  ],
+  "version" : 2
+}
