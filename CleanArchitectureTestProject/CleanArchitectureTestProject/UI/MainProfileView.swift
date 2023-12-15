@@ -27,7 +27,7 @@ struct MainProfileView: View {
 }
 
 #Preview {
-    let testProfileUseCase: FetchUserUseCase = ProfileAPIServiceMock()
-    let profileVM = ProfileViewModel(fetchUserUseCase: testProfileUseCase)
+    let testProfileUseCase: FetchProfileUseCase = ProfileAPIServiceMock()
+    let profileVM = ProfileViewModel(fetchProfileUseCase: testProfileUseCase)
     return MainProfileView(profileViewModel: profileVM)
 }

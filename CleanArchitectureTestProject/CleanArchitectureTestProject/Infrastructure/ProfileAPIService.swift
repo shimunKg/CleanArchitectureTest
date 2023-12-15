@@ -8,9 +8,9 @@
 import Foundation
 import ShimunNetwork
 
-final class ProfileAPIService: FetchUserUseCase {
+final class ProfileAPIService: FetchProfileUseCase {
     
-    func fetchUser() async throws -> Profile {
+    func fetchProfile() async throws -> Profile {
         let request = Request(
             scheme: .https,
             host: "run.mocky.io",
@@ -26,9 +26,9 @@ final class ProfileAPIService: FetchUserUseCase {
 // where should i mock those classes?
 // Is it a good practice to to it like so?
 
-final class ProfileAPIServiceMock: FetchUserUseCase {
+final class ProfileAPIServiceMock: FetchProfileUseCase {
     
-    func fetchUser() async throws -> Profile {
+    func fetchProfile() async throws -> Profile {
         return Profile(name: "Nikola")
     }
     

@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct CleanArchitectureTestProjectApp: App {
-    var profileAPIUseCase: FetchUserUseCase = ProfileAPIService()
+    var profileAPIUseCase: FetchProfileUseCase = ProfileAPIService()
     var body: some Scene {
         WindowGroup {
-            MainProfileView(profileViewModel: ProfileViewModel(fetchUserUseCase: profileAPIUseCase))
+            MainProfileView(profileViewModel: ProfileViewModel(fetchProfileUseCase: profileAPIUseCase))
         }
     }
 }

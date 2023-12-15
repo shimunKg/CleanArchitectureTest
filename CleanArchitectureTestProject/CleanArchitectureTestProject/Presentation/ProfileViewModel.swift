@@ -11,16 +11,16 @@ final class ProfileViewModel: ObservableObject {
     // I would like to dissalow the viewModel to emit the whole USER object, since maybe the UI is interested only in Name and i'm providing it with all other data that it's not interested in.
     
     @Published var profile: Profile?
-    private var fetchUserUseCase: FetchUserUseCase
+    private var fetchProfileUseCase: FetchProfileUseCase
     
-    init(fetchUserUseCase: FetchUserUseCase) {
-        self.fetchUserUseCase = fetchUserUseCase
+    init(fetchProfileUseCase: FetchProfileUseCase) {
+        self.fetchProfileUseCase = fetchProfileUseCase
     }
     
     @MainActor
     func fetchProfile() async throws {
         do {
-            profile = try await fetchUserUseCase.fetchUser()
+            profile = try await fetchProfileUseCase.fetchProfile()
         } catch {
             throw(error)
         }

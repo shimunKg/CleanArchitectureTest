@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol FetchUserUseCase {
-    func fetchUser() async throws -> Profile
+protocol FetchProfileUseCase {
+    func fetchProfile() async throws -> Profile
 }
