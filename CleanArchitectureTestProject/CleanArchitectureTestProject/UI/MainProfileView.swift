@@ -11,17 +11,23 @@ struct MainProfileView: View {
     @ObservedObject var profileViewModel: ProfileViewModel
     var body: some View {
         VStack {
-            // I highly dislike this below // more on it in the viewModel ->
-            Text("Fetched user name is: \(profileViewModel.profile?.name ?? "")")
-//            <-
+            HStack {
+                Text("Fetched user name is: ")
+                Text(profileViewModel.name)
+                    .redacted(reason: profileViewModel.profile == nil ? .placeholder: [])
+            }
         }
         .padding()
         .task {
-            do {
-                try await profileViewModel.fetchProfile()
-            } catch {
-                print(error)
-            }
+            await fetchProfile()
+        }
+    }
+    
+    private func fetchProfile() async {
+        do {
+            try await profileViewModel.fetchProfile()
+        } catch {
+            print(error)
         }
     }
 }

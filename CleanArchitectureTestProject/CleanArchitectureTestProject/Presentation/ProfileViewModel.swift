@@ -8,9 +8,10 @@
 import Foundation
 
 final class ProfileViewModel: ObservableObject {
-    // I would like to dissalow the viewModel to emit the whole USER object, since maybe the UI is interested only in Name and i'm providing it with all other data that it's not interested in.
+
+    private (set) var profile: Profile?
+    @Published var name: String = "No name"
     
-    @Published var profile: Profile?
     private var fetchProfileUseCase: FetchProfileUseCase
     
     init(fetchProfileUseCase: FetchProfileUseCase) {
@@ -21,6 +22,7 @@ final class ProfileViewModel: ObservableObject {
     func fetchProfile() async throws {
         do {
             profile = try await fetchProfileUseCase.fetchProfile()
+            name = profile?.name ?? ""
         } catch {
             throw(error)
         }

@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
+import ShimunNetwork
 @main
 struct CleanArchitectureTestProjectApp: App {
-    var profileAPIUseCase: FetchProfileUseCase = ProfileAPIService()
+    var profileAPIUseCase: FetchProfileUseCase = ProfileAPIService(requester: Requester())
     var body: some Scene {
         WindowGroup {
             MainProfileView(profileViewModel: ProfileViewModel(fetchProfileUseCase: profileAPIUseCase))
